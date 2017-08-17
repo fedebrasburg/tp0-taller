@@ -1,9 +1,9 @@
-const { spawn } = require('child_process');
-const request = require('request');
-const test = require('tape');
+const assert = require('assert');
 
-// Start the app
-const env = Object.assign({}, process.env, {PORT: 5000});
-const child = spawn('node', ['index.js'], {env});
-
-
+describe('Array', function() {
+    describe('#indexOf()', function() {
+        it('should return -1 when the value is not present', function() {
+            assert.equal(-1, [1,2,3].indexOf(4));
+        });
+    });
+});
