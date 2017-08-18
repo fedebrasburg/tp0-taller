@@ -1,0 +1,38 @@
+[
+  {
+    "id": 6559994,
+    "name": "Buenos Aires",
+    "country": "PE",
+    "coord": {
+      "lon": -78.497498,
+      "lat": -9.12417
+    }
+  },
+  {
+    "id": 5128638,
+    "name": "New York",
+    "country": "US",
+    "coord": {
+      "lon": -75.499901,
+      "lat": 43.000351
+    }
+  },
+  {
+    "id": 5273134,
+    "name": "Sidney",
+    "country": "US",
+    "coord": {
+      "lon": -90.638748,
+      "lat": 44.552738
+    }
+  },
+  {
+    "id": 3451189,
+    "name": "Estado do Rio de Janeiro",
+    "country": "BR",
+    "coord": {
+      "lon": -42.5,
+      "lat": -22
+    }
+  }
+]

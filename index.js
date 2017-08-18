@@ -10,8 +10,12 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/weather/:cityId', function(request, response) {
-  WeatherService().getWeather(request.params.cityId).then(weather => response.json(weather));
+app.get('/weather/cities/:cityId', function(request, response) {
+    WeatherService().getWeather(request.params.cityId).then(weather => response.json(weather));
+});
+
+app.get('/weather/cities', function(request, response) {
+    WeatherService().getCities().then(cities => response.json(cities));
 });
 
 app.listen(app.get('port'), function() {
