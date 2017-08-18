@@ -12,8 +12,9 @@ module.exports = function weatherService() {
                 .then((weather) => weather.json().then((res => {
                    return {
                        weather: res.weather[0].main,
+                       pressure: res.main.pressure,
                        temperature: res.main.temp,
-                       humidity: res.main.humidity
+                       city: res.name
                    }
                 })));
         },
@@ -35,5 +36,5 @@ module.exports = function weatherService() {
 };
 
 const makeUrl = (cityId) => {
-    return 'http://api.openweathermap.org/data/2.5/weather?id='+cityId+'&APPID=589099769890849ac40bc3c154da93a8';
+    return 'http://api.openweathermap.org/data/2.5/weather?id='+cityId+'&units=metric&APPID=589099769890849ac40bc3c154da93a8';
 }
