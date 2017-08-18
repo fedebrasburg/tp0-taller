@@ -8,7 +8,14 @@ module.exports = function weatherService() {
 
     var self = {
         getWeather: (cityId) => {
-            return fetch(makeUrl(cityId)).then((weather) => weather.json());
+            return fetch(makeUrl(cityId))
+                .then((weather) => weather.json().then((res => {
+                   return {
+                       weather: res.weather[0].main,
+                       temperature: res.main.temp,
+                       humidity: res.main.humidity
+                   }
+                })));
         },
 
         getCities: () => {
