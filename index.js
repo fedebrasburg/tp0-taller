@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+const WeatherService = require('./weather/services/weatherService.js');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -9,8 +10,12 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  response.json({weather:"sunny"});
+app.get('/weather/cities/:cityId', function(request, response) {
+    WeatherService().getWeather(request.params.cityId).then(weather => response.json(weather));
+});
+
+app.get('/weather/cities', function(request, response) {
+    WeatherService().getCities().then(cities => response.json(cities));
 });
 
 app.listen(app.get('port'), function() {
