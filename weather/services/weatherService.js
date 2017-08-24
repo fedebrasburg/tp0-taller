@@ -18,7 +18,6 @@ module.exports = function weatherService() {
                    }
                 })));
         },
-
         getCities: () => {
             return fs.readFileAsync('./weather/services/files/cityList.json', 'utf8').then((data) => {
                 return JSON.parse(data).map( (city) => {
