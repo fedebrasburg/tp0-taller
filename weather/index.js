@@ -1,6 +1,7 @@
-const express = require('express')
+import WeatherService from "./services/weatherService.js"
+import express from "express"
+
 const app = express()
-const WeatherService = require('./weather/services/weatherService.js')
 
 app.set('port', (process.env.PORT || 5000))
 
