@@ -20,7 +20,7 @@ module.exports = function weatherService() {
         },
         getCities: (name) => {
             if (!name || name.length < 2) {
-                return Promise.resolve([])
+                return Promise.reject();
             }
             const filename = `${name.substr(0, 2)}.json`
             const path = `./weather/services/files/${filename}`
