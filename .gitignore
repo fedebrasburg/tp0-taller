@@ -60,3 +60,4 @@ typings/
 /package-lock.json
 .idea/
 package-lock.json
+weather/services/files/*.json
