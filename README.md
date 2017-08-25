@@ -1,13 +1,13 @@
 # Weather App Backend
 
-The backend is host in https://tp0-taller.herokuapp.com
+The backend is hosted in https://tp0-taller.herokuapp.com
 
-## Api definition:
+## API definition:
 
-### -```/weather/cities```
+### ```/weather/cities/name/:name```
 
-Returns all available cities
+Returns all available cities that starts with `name`
 
-### -```/weather/cities/:cityId```
+### ```/weather/cities/:cityId```
 
 Returns a city weather
