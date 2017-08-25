@@ -29,12 +29,9 @@ module.exports = function weatherService() {
                 return JSON.parse("[]")
             }
             return fs.readFileAsync(path, 'utf8').then((data) => {
-                return JSON.parse(data).map( (city) => {
-                    return {
-                        id: city.id,
-                        name: city.name,
-                        country: city.country
-                    }
+                return JSON.parse(data).filter( (city) => {
+                    const regex = new RegExp(`^${name}.*`, 'i')
+                    return regex.test(city.name)
                 })
             })
         }
