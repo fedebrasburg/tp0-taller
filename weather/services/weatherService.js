@@ -19,14 +19,12 @@ module.exports = function weatherService() {
         },
         getCities: (name) => {
             if (!name || name.length < 2) {
-                // TODO: No se que habria que devolver en estos casos
-                return JSON.parse("[]")
+                return Promise.resolve([])
             }
             const filename = `${name.substr(0, 2)}.json`
             const path = `./weather/services/files/${filename}`
             if (!fs.existsSync(path)) {
-                // TODO: No se que habria que devolver en estos casos
-                return JSON.parse("[]")
+                return Promise.resolve([])
             }
             return fs.readFileAsync(path, 'utf8').then((data) => {
                 return JSON.parse(data).filter( (city) => {
