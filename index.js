@@ -14,10 +14,6 @@ app.get('/weather/cities/:cityId', (request, response) => {
     WeatherService().getWeather(request.params.cityId).then(weather => response.json(weather))
 })
 
-// app.get('/weather/cities', (request, response) => {
-//     WeatherService().getCities().then(cities => response.json(cities));
-// });
-
 app.get('/weather/cities/name/:name', (request, response) => {
     WeatherService().getCities(request.params.name).then(cities => response.json(cities))
 })

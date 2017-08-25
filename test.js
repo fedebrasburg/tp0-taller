@@ -1,9 +1,22 @@
-const assert = require('assert');
+const assert = require('assert')
+const WeatherService = require('./weather/services/weatherService.js')
 
-describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-    });
-});
+describe('WeatherService', () => {
+    describe('#getCities()', () => {
+        it('should return empty array when sending a name with only one letter', () => {
+            return WeatherService().getCities("b").then((data) => {
+                assert.equal(0, data.length)
+            })
+        })
+        it('should return empty array when sending a name that does not have a matching file', () => {
+            return WeatherService().getCities("xz").then((data) => {
+                assert.equal(0, data.length)
+            })
+        })
+        it('should return a non empty array when sending a name with two letters', () => {
+            return WeatherService().getCities("bu").then((data) => {
+                assert.notEqual(0, data.length)
+            })
+        })
+    })
+})
