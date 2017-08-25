@@ -1,13 +1,13 @@
 const WeatherService = require('./weather/services/weatherService.js')
 const chai = require('chai')
+const chaiAsPromised = require("chai-as-promised")
+chai.use(chaiAsPromised)
 const expect = chai.expect
 
 describe('WeatherService', () => {
     describe('#getCities()', () => {
         it('should return empty array when sending a name with only one letter', () => {
-            return WeatherService().getCities("b").then((data) => {
-                expect(data.length).to.equal(0)
-            })
+            return expect(WeatherService().getCities("b")).to.be.rejected
         })
         it('should return empty array when sending a name that does not have a matching file', () => {
             return WeatherService().getCities("xz").then((data) => {

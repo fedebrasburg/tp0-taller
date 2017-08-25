@@ -21,7 +21,7 @@ app.get('/weather/cities/name/:name', (request, response) => {
     	.catch(err => {
     		response.status(406);
     		response.json({ message: "City name should have at least two characters" })
-    	});
+        })
 })
 
 app.listen(app.get('port'), () => {
