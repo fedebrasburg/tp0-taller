@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const Promise = require('bluebird')
 const fs = Promise.promisifyAll(require('fs'))
-// 6559994 es la de Buenos Aires ;)
+// 3435910 es la de Buenos Aires ;)
 
 
 module.exports = function weatherService() {
@@ -13,7 +13,8 @@ module.exports = function weatherService() {
                        weather: res.weather[0].main,
                        pressure: res.main.pressure,
                        temperature: res.main.temp,
-                       city: res.name
+                       city: res.name,
+                       country: res.sys.country
                    }
                 })))
         },
