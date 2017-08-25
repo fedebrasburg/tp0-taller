@@ -1,9 +1,28 @@
-const assert = require('assert');
+const WeatherService = require('./weather/services/weatherService.js')
+const chai = require('chai')
+const chaiAsPromised = require("chai-as-promised")
+chai.use(chaiAsPromised)
+const expect = chai.expect
 
-describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-    });
-});
+describe('WeatherService', () => {
+    describe('#getCities()', () => {
+        it('should return empty array when sending a name with only one letter', () => {
+            return expect(WeatherService().getCities("b")).to.be.rejected
+        })
+        it('should return empty array when sending a name that does not have a matching file', () => {
+            return WeatherService().getCities("xz").then((data) => {
+                expect(data.length).to.equal(0)
+            })
+        })
+        it('should return a non empty array when sending a name with two letters', () => {
+            return WeatherService().getCities("bu").then((data) => {
+                expect(data.length).to.be.greaterThan(0)
+            })
+        })
+        it('should return a non empty array when sending a name with more than two letters', () => {
+            return WeatherService().getCities("buenos").then((data) => {
+                expect(data.length).to.be.greaterThan(0)
+            })
+        })
+    })
+})
