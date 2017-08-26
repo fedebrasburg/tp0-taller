@@ -1,6 +1,7 @@
-const WeatherService = require('./weather/services/weatherService.js')
-const chai = require('chai')
-const chaiAsPromised = require("chai-as-promised")
+import WeatherService from "./weather/services/weatherService.js"
+import chai from "chai"
+import chaiAsPromised from "chai-as-promised"
+
 chai.use(chaiAsPromised)
 const expect = chai.expect
 

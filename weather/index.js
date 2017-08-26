@@ -17,11 +17,11 @@ app.get('/weather/cities/:cityId', (request, response) => {
 
 app.get('/weather/cities/name/:name', (request, response) => {
     WeatherService()
-    	.getCities(request.params.name)
-    	.then(cities => response.json(cities))
-    	.catch(err => {
-    		response.status(406);
-    		response.json({ message: "City name should have at least two characters" })
+        .getCities(request.params.name)
+        .then(cities => response.json(cities))
+        .catch(err => {
+            response.status(406)
+            response.json({ message: "City name should have at least two characters" })
         })
 })
 
