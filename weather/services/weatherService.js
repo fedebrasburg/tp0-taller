@@ -27,9 +27,9 @@ export default function WeatherService() {
             if (!fs.existsSync(path)) {
                 return Promise.resolve([])
             }
-            return fs.readFileAsync(path, 'utf8').then((data) => {
+            return fs.readFileAsync(path, "utf8").then((data) => {
                 return JSON.parse(data).filter( (city) => {
-                    const regex = new RegExp(`^${name}.*`, 'i')
+                    const regex = new RegExp(`^${name}.*`, "i")
                     return regex.test(city.name)
                 })
             })
