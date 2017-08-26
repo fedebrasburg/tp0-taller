@@ -1,4 +1,4 @@
-import WeatherService from "./weather/services/weatherService.js"
+import WeatherService from "../weather/services/weatherService.js"
 import chai from "chai"
 import chaiAsPromised from "chai-as-promised"
 
