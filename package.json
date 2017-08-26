@@ -10,7 +10,8 @@
     "start": "nodemon weather/index.js --exec babel-node",
     "build": "babel weather -d dist",
     "serve": "node dist/weather/index.js",
-    "test": "mocha --compilers js:babel-register"
+    "test": "mocha --compilers js:babel-register",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "bluebird": "^3.5.0",

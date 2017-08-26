@@ -6,7 +6,7 @@ chai.use(chaiAsPromised)
 const expect = chai.expect
 
 describe('WeatherService', () => {
-    describe('#getCities()', () => {
+    describe('#getCities', () => {
         it('should return empty array when sending a name with only one letter', () => {
             return expect(WeatherService().getCities("b")).to.be.rejected
         })
