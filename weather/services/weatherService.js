@@ -1,10 +1,10 @@
-const fetch = require('node-fetch')
-const Promise = require('bluebird')
-const fs = Promise.promisifyAll(require('fs'))
-// 3435910 es la de Buenos Aires ;)
+import fetch from "node-fetch"
+import Promise from "bluebird"
+import fs0 from "fs"
 
+const fs = Promise.promisifyAll(fs0)
 
-module.exports = function weatherService() {
+export default function WeatherService() {
     return {
         getWeather: (cityId) => {
             return fetch(makeUrl(cityId))
@@ -20,16 +20,16 @@ module.exports = function weatherService() {
         },
         getCities: (name) => {
             if (!name || name.length < 2) {
-                return Promise.reject();
+                return Promise.reject()
             }
             const filename = `${name.substr(0, 2)}.json`
             const path = `./weather/services/files/${filename}`
             if (!fs.existsSync(path)) {
                 return Promise.resolve([])
             }
-            return fs.readFileAsync(path, 'utf8').then((data) => {
+            return fs.readFileAsync(path, "utf8").then((data) => {
                 return JSON.parse(data).filter( (city) => {
-                    const regex = new RegExp(`^${name}.*`, 'i')
+                    const regex = new RegExp(`^${name}.*`, "i")
                     return regex.test(city.name)
                 })
             })
