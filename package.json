@@ -9,7 +9,7 @@
   "scripts": {
     "start": "nodemon weather/index.js --exec babel-node",
     "build": "babel weather -d dist",
-    "serve": "node dist/index.js",
+    "serve": "NODE_PATH=dist NODE_ENV=production node dist/index.js",
     "test": "mocha --compilers js:babel-register",
     "clean": "rm -rf dist"
   },
