@@ -7,9 +7,10 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
+    "start": "nodemon weather/index.js --exec babel-node",
     "build": "babel weather -d dist",
-    "serve": "NODE_PATH=dist NODE_ENV=production node dist/index.js",
+    "serve": "NODE_PATH=build NODE_ENV=production node dist/index.js",
+    "server": "babel-node weather",
     "test": "mocha --compilers js:babel-register",
     "clean": "rm -rf dist"
   },
